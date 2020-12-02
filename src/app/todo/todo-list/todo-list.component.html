@@ -1,0 +1,29 @@
+<h3>List of items</h3>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th class="left">Name</th>
+    <th>Due Date</th>
+    <th>Is Done</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of (items$ | async); let i = index">
+    <td>{{ i + 1 }}</td>
+    <td class="left">
+      <a [routerLink]="['./', item.id]">{{ item.name }}</a>
+    </td>
+    <td>{{ item.dueDate | date:"MMM dd, yyyy" }}</td>
+    <td><input type="checkbox" [checked]="item.completed" disabled></td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="4" class="right">
+      <a routerLink="./new" class="btn btn-primary">New Item</a>
+    </td>
+  </tr>
+  </tfoot>
+</table>

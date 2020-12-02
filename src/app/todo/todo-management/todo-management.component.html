@@ -1,0 +1,25 @@
+<div *ngIf="loading; else ready">
+  <h3>Loading...</h3>
+</div>
+
+<ng-template #ready>
+  <h3>To-do Item</h3>
+  <form clrForm [formGroup]="form" novalidate (ngSubmit)="submit(form.value)">
+    <clr-input-container>
+      <label>Task name</label>
+      <input clrInput type="text" formControlName="name" placeholder="Task name">
+    </clr-input-container>
+    <clr-input-container>
+      <label>Due date</label>
+      <input clrInput type="date" formControlName="dueDate">
+    </clr-input-container>
+    <clr-checkbox-container>
+      <clr-checkbox-wrapper>
+        <input type="checkbox" clrCheckbox formControlName="completed">
+        <label>Completed</label>
+      </clr-checkbox-wrapper>
+    </clr-checkbox-container>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</ng-template>
