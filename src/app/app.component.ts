@@ -13,12 +13,15 @@ export class AppComponent implements OnInit {
 
   AlertType = AlertType;
 
-  constructor(private alertSvc: AlertService) {
-  }
+  constructor(private alertSvc: AlertService) { }
 
   ngOnInit(): void {
     this.alertSvc.message$.subscribe((result: AlertMessage) => {
       this.message = result;
     });
+  }
+
+  public closeAlert(): void {
+    this.alertSvc.closeAlert();
   }
 }

@@ -5,6 +5,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: 'todo', loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule) },
+  { path: 'gatekeeper', loadChildren: () => import('./gatekeeper/gatekeeper.module').then(m => m.GatekeeperModule) },
   {
     path: '',
     redirectTo: '/home',

@@ -32,6 +32,10 @@ export class AlertService {
     this.messageSubject.next(alertMessage);
   }
 
+  public closeAlert(): void {
+    this.messageSubject.next(null);
+  }
+
   private createMessage(type: AlertType, msg: string): AlertMessage {
     return new AlertMessage(type, msg);
   }

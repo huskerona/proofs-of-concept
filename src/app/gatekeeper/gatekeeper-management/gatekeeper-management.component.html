@@ -1,0 +1,48 @@
+<h3>Gatekeeper Management</h3>
+
+<div *ngIf="loading; else ready">
+  <h5>Loading...</h5>
+</div>
+
+<ng-template #ready>
+  <form clrForm [formGroup]="form" novalidate (ngSubmit)="submit(form.value)">
+
+    <clr-input-container>
+      <label for="name">Configuration name</label>
+      <input clrInput id="name" type="text" formControlName="name" placeholder="Configuration name">
+    </clr-input-container>
+
+    <clr-select-container>
+      <label for="method">Method</label>
+      <select clrSelect id="method" formControlName="method">
+        <option value="0" selected>--- Choose Method ---</option>
+        <option *ngFor="let method of methods" [value]="method.id">{{ method.name }}</option>
+      </select>
+    </clr-select-container>
+
+    <clr-input-container>
+      <label for="endpoint">Endpoint</label>
+      <input clrInput id="endpoint" type="text" formControlName="endpoint" placeholder="API Endpoint">
+    </clr-input-container>
+
+    <clr-select-container>
+      <label for="direction">Direction</label>
+      <select clrSelect id="direction" formControlName="direction">
+        <option value="0" selected>--- Choose Direction ---</option>
+        <option *ngFor="let direction of directions" [value]="direction.id">{{ direction.name }}</option>
+      </select>
+    </clr-select-container>
+
+    <clr-checkbox-container>
+      <clr-checkbox-wrapper>
+        <label for="active">Active</label>
+        <input id="active" type="checkbox" clrToggle formControlName="active">
+      </clr-checkbox-wrapper>
+    </clr-checkbox-container>
+
+    <clr-button-group>
+      <clr-button type="submit" class="btn btn-primary">Submit</clr-button>
+      <clr-button type="reset" class="btn btn-secondary">Reset</clr-button>
+    </clr-button-group>
+  </form>
+</ng-template>

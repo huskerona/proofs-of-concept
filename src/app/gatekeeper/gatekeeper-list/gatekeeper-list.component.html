@@ -1,0 +1,35 @@
+<h3>Configuration List</h3>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th class="left">Name</th>
+    <th>HTTP Method</th>
+    <th class="left">API Endpoint</th>
+    <th>Direction</th>
+    <th>Active</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let config of (configs$ | async)">
+    <td>{{ config.id }}</td>
+    <td class="left">
+      <a [routerLink]="['./', config.id]">{{ config.name }}</a>
+    </td>
+    <td>{{ HTTPMethod[config.method] }}</td>
+    <td class="left">{{ config.endpoint }}</td>
+    <td>{{ HTTPDirection[config.direction] }}</td>
+    <td>
+      <input clrToggle type="checkbox" [checked]="config.active" disabled>
+    </td>
+  </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="6">
+        <a routerLink="./new" class="btn btn-link">New Configuration</a>
+      </td>
+    </tr>
+  </tfoot>
+</table>

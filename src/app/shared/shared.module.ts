@@ -1,14 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AlertService } from './alert.service';
-
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import {
+  ClrCheckboxModule,
+  ClrInputModule,
+  ClrSelectModule,
+  ClrButtonGroupModule
+} from '@clr/angular';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule
   ],
-  providers: [AlertService]
+  exports: [
+    ReactiveFormsModule,
+    HttpClientModule,
+    ClrInputModule,
+    ClrCheckboxModule,
+    ClrSelectModule,
+    ClrButtonGroupModule
+  ]
 })
 export class SharedModule { }

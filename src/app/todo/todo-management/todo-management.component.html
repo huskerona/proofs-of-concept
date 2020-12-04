@@ -1,9 +1,10 @@
+<h3>To-do Item</h3>
+
 <div *ngIf="loading; else ready">
-  <h3>Loading...</h3>
+  <h5>Loading...</h5>
 </div>
 
 <ng-template #ready>
-  <h3>To-do Item</h3>
   <form clrForm [formGroup]="form" novalidate (ngSubmit)="submit(form.value)">
     <clr-input-container>
       <label>Task name</label>
@@ -15,7 +16,7 @@
     </clr-input-container>
     <clr-checkbox-container>
       <clr-checkbox-wrapper>
-        <input type="checkbox" clrCheckbox formControlName="completed">
+        <input clrToggle type="checkbox" clrCheckbox formControlName="completed">
         <label>Completed</label>
       </clr-checkbox-wrapper>
     </clr-checkbox-container>

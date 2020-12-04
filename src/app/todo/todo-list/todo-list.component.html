@@ -16,13 +16,13 @@
       <a [routerLink]="['./', item.id]">{{ item.name }}</a>
     </td>
     <td>{{ item.dueDate | date:"MMM dd, yyyy" }}</td>
-    <td><input type="checkbox" [checked]="item.completed" disabled></td>
+    <td><input clrToggle type="checkbox" [checked]="item.completed" disabled></td>
   </tr>
   </tbody>
   <tfoot>
   <tr>
-    <td colspan="4" class="right">
-      <a routerLink="./new" class="btn btn-primary">New Item</a>
+    <td colspan="4">
+      <a routerLink="./new" class="btn btn-link">New Item</a>
     </td>
   </tr>
   </tfoot>

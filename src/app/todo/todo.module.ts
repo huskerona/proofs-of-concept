@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
-import { ClrCheckboxModule, ClrInputModule } from '@clr/angular';
+import { SharedModule } from '../shared/shared.module';
 
 import { TodoRoutingModule } from './todo-routing.module';
 import { TodoDashboardComponent } from './todo-dashboard/todo-dashboard.component';
@@ -13,9 +12,7 @@ import { TodoManagementComponent } from './todo-management/todo-management.compo
   imports: [
     CommonModule,
     TodoRoutingModule,
-    ReactiveFormsModule,
-    ClrInputModule,
-    ClrCheckboxModule
+    SharedModule
   ]
 })
 export class TodoModule { }

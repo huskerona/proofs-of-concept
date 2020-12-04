@@ -1,16 +1,24 @@
 <div class="main-container">
-  <div *ngIf="message" [ngClass]="{'alert alert-app-level alert-info': message.type === AlertType.Info, 'alert alert-app-level alert-danger': message.type === AlertType.Error}"
+  <div *ngIf="message"
+       class="alert alert-app-level"
+       [ngClass]="{'alert-info': message.type === AlertType.Info, 'alert-danger': message.type === AlertType.Error}"
        role="alert">
     <div class="alert-items">
       <div class="alert-item static">
         <div class="alert-icon-wrapper">
           <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
         </div>
-        <span class="alert-text">
+        <div class="alert-text">
           {{ message.message }}
-        </span>
+        </div>
+<!--        <div class="alert-actions">-->
+<!--          <button class="btn alert-action" (click)="closeAlert()">X</button>-->
+<!--        </div>-->
       </div>
     </div>
+    <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+      <clr-icon aria-hidden="true" shape="close"></clr-icon>
+    </button>
   </div>
   <header class="header header-5">
     <div class="branding">
@@ -20,7 +28,7 @@
       </a>
     </div>
     <div class="header-nav">
-      <a routerLink="/todo" class="nav-link" routerLinkActive="active">
+      <a routerLink="/gatekeeper" class="nav-link" routerLinkActive="active">
         <span class="nav-text">Gatekeeper</span>
       </a>
 
@@ -40,14 +48,16 @@
     </div>
   </header>
 
+  <!--
   <nav class="subnav">
     <ul class="nav">
       <li class="nav-item">
-        <a routerLink="/config" class="nav-link active">Configuration</a>
+        <a routerLink="/gatekeeper" class="nav-link" routerLinkActive="active">Gatekeeper</a>
       </li>
     </ul>
   </nav>
-
+  -->
+  
   <div class="content-container">
     <div class="content-area">
       <router-outlet></router-outlet>
