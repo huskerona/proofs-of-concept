@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import { GatekeeperConfig } from './models/gatekeeper-config';
+import { GatekeeperConfig, HTTPMethod } from './models/gatekeeper-config';
 
 @Injectable({
   providedIn: 'root'
@@ -23,19 +24,19 @@ export class GatekeeperService {
   }
 
   public registerConfiguration(config: GatekeeperConfig): Observable<GatekeeperConfig> {
-    // if (this.configs.length === 0) {
-    //   config.id = 1;
-    // } else {
-    //   const lastEntry = this.configs.reduce((a: GatekeeperConfig, b: GatekeeperConfig) => a.id < b.id ? b : a);
-    //   const nextId = lastEntry.id + 1;
-    //
-    //   config.id = nextId;
-    // }
 
     return this.http.post<GatekeeperConfig>(this.url, config);
   }
 
   public updateConfiguration(config: GatekeeperConfig): Observable<GatekeeperConfig> {
     return this.http.put<GatekeeperConfig>(`${this.url}/${config.id}`, config);
+  }
+
+  public requiresValidation(method: string, endpoint: string): Observable<GatekeeperConfig> {
+    const result = this.getConfigurations().pipe(
+      map(configs => configs.find(item => HTTPMethod[item.method] === method && endpoint.indexOf(item.endpoint))),
+    );
+
+    return result;
   }
 }

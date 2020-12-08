@@ -8,9 +8,10 @@ import {
   ClrSelectModule,
   ClrButtonGroupModule
 } from '@clr/angular';
+import { PromptComponent } from './prompt/prompt.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [PromptComponent],
   imports: [
     CommonModule
   ],
