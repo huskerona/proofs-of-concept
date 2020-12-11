@@ -1,1 +1,25 @@
-<p>prompt works!</p>
+<clr-modal *ngIf="showPopup" [(clrModalOpen)]="showPopup" [clrModalClosable]="false">
+  <h3 class="modal-title">Enter some reason</h3>
+    <div class="modal-body">
+
+      <form clrForm [formGroup]="form" novalidate (ngSubmit)="submit(form.value)">
+        <clr-textarea-container>
+          <label for="reason">Reason</label>
+          <textarea clrTextarea formControlName="reason" id="reason"></textarea>
+        </clr-textarea-container>
+        <clr-checkbox-container>
+          <clr-checkbox-wrapper>
+            <input clrToggle type="checkbox" formControlName="accepted" id="accepted">
+            <label for="accepted">Accepted</label>
+          </clr-checkbox-wrapper>
+        </clr-checkbox-container>
+        <clr-button-group>
+          <clr-button type="submit" class="btn btn-primary">Submit</clr-button>
+        </clr-button-group>
+      </form>
+
+    </div>
+    <div class="modal-footer">
+
+    </div>
+</clr-modal>

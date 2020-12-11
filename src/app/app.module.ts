@@ -10,14 +10,12 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { GatekeeperInterceptor } from './shared/interceptors/gatekeeper-interceptor.service';
 import { SharedModule } from './shared/shared.module';
-import { PromptComponent } from './share/prompt/prompt.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NotFoundComponent,
-    PromptComponent
   ],
   imports: [
     BrowserModule,
