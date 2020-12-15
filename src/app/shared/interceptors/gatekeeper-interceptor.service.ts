@@ -27,6 +27,7 @@ export class GatekeeperInterceptor implements HttpInterceptor {
       const newReq = req.clone({
         method: data.method,
         url: `${environment.apiUrl}${data.endpoint}/`,
+        body: data.data
       });
 
       return next.handle(newReq);

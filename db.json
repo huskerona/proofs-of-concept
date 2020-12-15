@@ -1,28 +1,27 @@
 {
   "todo": [
     {
-      "endpoint": "/api/todo/1",
-      "method": "PUT",
-      "accepted": true,
-      "reasonText": "This is a test",
-      "data": {
-        "id": 1,
-        "name": "Create Gatekeeper Interceptor",
-        "dueDate": "2020-12-11",
-        "completed": true
-      },
-      "id": 1
+      "id": 1,
+      "name": "Task 1",
+      "dueDate": "2020-12-16",
+      "completed": null
     },
     {
       "id": 2,
-      "name": "Document as Story",
-      "dueDate": "2020-12-30",
-      "completed": true
+      "name": "Task 2",
+      "dueDate": "2020-12-19",
+      "completed": null
     },
     {
       "id": 3,
-      "name": "Learn Angular",
-      "dueDate": "2017-12-11",
+      "name": "Task 3",
+      "dueDate": "2020-12-31",
+      "completed": null
+    },
+    {
+      "id": 4,
+      "name": "Task 4",
+      "dueDate": "2021-01-10",
       "completed": true
     }
   ],
@@ -49,7 +48,7 @@
       "method": "2",
       "endpoint": "/api/todo",
       "direction": "1",
-      "active": false
+      "active": true
     }
   ]
 }
